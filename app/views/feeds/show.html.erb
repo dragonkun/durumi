@@ -1,0 +1,43 @@
+<p>
+  <b>User:</b>
+  <%=h @feed.user_id %>
+</p>
+
+<p>
+  <b>Service:</b>
+  <%=h @feed.service_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @feed.title %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @feed.url %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%=h @feed.image %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @feed.description %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @feed.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @feed.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>
