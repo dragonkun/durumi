@@ -1,0 +1,24 @@
+!!! XML
+!!!
+%html
+  %head
+    %title
+  %body
+    #menu
+      %h1 
+        %a{:href => root_url} Durumi
+      %ul
+        - if logged_in?
+          %li
+            %a{:href => logout_url} Logout
+        - else
+          %li
+            %a{:href => login_url} Login 
+          %li
+            %a{:href => signup_url} Signup
+    #submenu
+      %h2 Submenu
+    #main
+      #flash
+        = flash[:notice]
+      = yield
