@@ -1,3 +1,151 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 0.75em;
+}
+
+a {
+	color: #3465A4;
+	text-decoration: none;
+	border-bottom: 1px dotted #3465A4;
+}
+
+ul {
+	list-style: none;
+}
+
+input.text {
+	padding: 0.2em;
+	border: 2px solid #ddd;
+	margin: 0.5em 0;
+}
+
+#menu {
+	width: 100%;
+	background: black;
+	color: white;
+	float: right;
+}
+
+#menu a {
+	color: white;
+	border-bottom: 1px dotted white;
+	padding: 0.2em 0;
+}
+
+#menu ul {
+	background: scroll 0 100%;
+	list-style: none;
+	padding-left: 1.5em;
+}
+
+#menu ul li {
+	float: left;
+	padding: 1em 0;
+	width: 3%;
+}
+
+#menu ul li.home {
+	background: scroll 100% 0;
+	float: left;
+	width: 92%;
+}
+
+#header {
+	clear: both;
+	background: #4775b4;
+	padding: 2em 1.5em;
+}
+
+#header a {
+	color: white;
+	border-bottom: none;
+}
+
+#submenu {
+	border: 0.5em solid #eee;
+	float: right;
+	width: 20em;
+	padding: 1em;
+	margin: 0.5em;
+}
+
+#submenu #profile {
+	border: 2px solid #eee;
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
+#submenu ul li {
+	padding: 1em;
+	border-bottom: 1px solid #eee;
+}
+
+#submenu h2 {
+	color: #666;
+	border-bottom: 2px solid #eee;
+}
+
+#main {
+	padding: 1em;
+	margin: 0.5em;
+	float: left;
+	width: 82%;
+}
+
+#main h2 {
+	color: #666;
+	border-bottom: 2px solid #eee;
+}
+
+#main ul li.item {
+	border: 2px solid #eee;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+#main ul li p.body {
+	clear: both;
+	padding: 1em 0;
+}
+
+#main ul li h3 {
+	padding-left: 1.2em;
+}
+
+#main ul li.item .metadata {
+	padding: 0.5em 0;
+	color: #aaa;
+}
+
+#main ul li.item ul {
+	float:left;
+}
+
+#main ul li.item ul li {
+	float: left;
+	width: 2.5em;
+}
+
+#main ul li.item ul li a {
+	color: #aaa;	
+	border-bottom: 1px dotted #aaa;
+}
+
+#footer {
+	clear: both;
+}
+
+#flash {
+	border: 2px solid #eed;
+	background: #fafaee;
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
 .success {
 	padding-left: 1.5em;
 	color: green;
@@ -9,5 +157,3 @@
 	color: red;
 	font-weight: bold;
 }
-
-
