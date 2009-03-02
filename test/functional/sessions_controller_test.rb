@@ -9,7 +9,8 @@ class SessionsControllerTest < ActionController::TestCase
   # Then, you can remove it from this and the units test.
   include AuthenticatedTestHelper
 
-  fixtures :users
+	set_fixture_class :durumi_users => User
+  fixtures :durumi_users
 
   def test_should_login_and_redirect
     post :create, :login => 'quentin', :password => 'monkey'
@@ -50,22 +51,22 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   def test_should_login_with_cookie
-    users(:quentin).remember_me
+    durumi_users(:quentin).remember_me
     @request.cookies["auth_token"] = cookie_for(:quentin)
     get :new
     assert @controller.send(:logged_in?)
   end
 
   def test_should_fail_expired_cookie_login
-    users(:quentin).remember_me
-    users(:quentin).update_attribute :remember_token_expires_at, 5.minutes.ago
+    durumi_users(:quentin).remember_me
+    durumi_users(:quentin).update_attribute :remember_token_expires_at, 5.minutes.ago
     @request.cookies["auth_token"] = cookie_for(:quentin)
     get :new
     assert !@controller.send(:logged_in?)
   end
 
   def test_should_fail_cookie_login
-    users(:quentin).remember_me
+    durumi_users(:quentin).remember_me
     @request.cookies["auth_token"] = auth_token('invalid_auth_token')
     get :new
     assert !@controller.send(:logged_in?)
@@ -77,6 +78,6 @@ class SessionsControllerTest < ActionController::TestCase
     end
     
     def cookie_for(user)
-      auth_token users(user).remember_token
+      auth_token durumi_users(user).remember_token
     end
 end

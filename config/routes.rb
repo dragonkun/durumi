@@ -3,14 +3,11 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :users
-
+  map.root :controller => 'items', :action => 'index'
+  map.resources :users, :collection => { :login_check => :get, :email_check => :get, :password_check => :get }
   map.resource :session
-
   map.resources :items
-
   map.resources :services
-
   map.resources :feeds
 
   # The priority is based upon order of creation: first created -> highest priority.

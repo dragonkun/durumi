@@ -7,24 +7,32 @@ body {
 	font-size: 0.75em;
 }
 
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
 a {
 	color: #3465A4;
 	text-decoration: none;
 	border-bottom: 1px dotted #3465A4;
 }
 
-ul {
+ul, ol {
+	margin: 0;
 	list-style: none;
 }
 
 input.text {
 	padding: 0.2em;
 	border: 2px solid #ddd;
-	margin: 0.5em 0;
 }
 
 #menu {
-	width: 100%;
 	background: black;
 	color: white;
 	float: right;
@@ -33,31 +41,24 @@ input.text {
 #menu a {
 	color: white;
 	border-bottom: 1px dotted white;
-	padding: 0.2em 0;
 }
 
 #menu ul {
 	background: scroll 0 100%;
 	list-style: none;
-	padding-left: 1.5em;
 }
 
 #menu ul li {
 	float: left;
-	padding: 1em 0;
-	width: 3%;
 }
 
 #menu ul li.home {
 	background: scroll 100% 0;
 	float: left;
-	width: 92%;
 }
 
 #header {
-	clear: both;
 	background: #4775b4;
-	padding: 2em 1.5em;
 }
 
 #header a {
@@ -66,21 +67,16 @@ input.text {
 }
 
 #submenu {
-	border: 0.5em solid #eee;
+	border: 1px solid #eee;
 	float: right;
-	width: 20em;
-	padding: 1em;
-	margin: 0.5em;
+	padding: 0 0.5em;
 }
 
 #submenu #profile {
 	border: 2px solid #eee;
-	padding: 1em;
-	margin-bottom: 1em;
 }
 
 #submenu ul li {
-	padding: 1em;
 	border-bottom: 1px solid #eee;
 }
 
@@ -90,10 +86,7 @@ input.text {
 }
 
 #main {
-	padding: 1em;
-	margin: 0.5em;
 	float: left;
-	width: 82%;
 }
 
 #main h2 {
@@ -103,21 +96,19 @@ input.text {
 
 #main ul li.item {
 	border: 2px solid #eee;
-	padding: 1em;
-	margin: 1em 0;
+	padding: 0.5em;
+	margin: 0.5em 0;
+	width: 100%;
 }
 
 #main ul li p.body {
 	clear: both;
-	padding: 1em 0;
 }
 
 #main ul li h3 {
-	padding-left: 1.2em;
 }
 
 #main ul li.item .metadata {
-	padding: 0.5em 0;
 	color: #aaa;
 }
 
@@ -127,7 +118,6 @@ input.text {
 
 #main ul li.item ul li {
 	float: left;
-	width: 2.5em;
 }
 
 #main ul li.item ul li a {
@@ -142,10 +132,10 @@ input.text {
 #flash {
 	border: 2px solid #eed;
 	background: #fafaee;
-	padding: 1em;
 	margin-bottom: 1em;
 }
 
+/*
 .success {
 	padding-left: 1.5em;
 	color: green;
@@ -157,3 +147,4 @@ input.text {
 	color: red;
 	font-weight: bold;
 }
+*/

@@ -1,34 +1,23 @@
-<h1>Listing items</h1>
+<h2>Listing items</h2>
 
-<table>
-  <tr>
-    <th>Feed</th>
-    <th>Title</th>
-    <th>Link</th>
-    <th>Guid</th>
-    <th>Author</th>
-    <th>Body</th>
-    <th>Created at</th>
-    <th>Updated at</th>
-  </tr>
-
+<ul>
 <% for item in @items %>
-  <tr>
-    <td><%=h item.feed_id %></td>
-    <td><%=h item.title %></td>
-    <td><%=h item.link %></td>
-    <td><%=h item.guid %></td>
-    <td><%=h item.author %></td>
-    <td><%=h item.body %></td>
-    <td><%=h item.created_at %></td>
-    <td><%=h item.updated_at %></td>
-    <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<li class="item">
+		<h3><%= link_to h(item.title), item.link %></h3>
+		<p class="metadata">
+			<span class="datetime">
+				<%= h item.created_at.to_s(:db) %>
+			</span>
+			<ul>
+				<li><%= link_to '수정', edit_item_path(item) %></li>
+				<li><%= link_to '삭제', item, :confirm => 'Are you sure?', :method => :delete %></li>
+			</ul>
+		</p>
+		<p class="body">
+			<%= h item.body %>
+		</p>
+	</li>
 <% end %>
-</table>
-
-<br />
+</ul>
 
 <%= link_to 'New item', new_item_path %>

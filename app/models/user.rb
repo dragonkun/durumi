@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
 
 	set_table_name :durumi_users
+	has_many :feeds
 
   validates_presence_of     :login
-  validates_length_of       :login,    :within => 3..40
+  validates_length_of       :login,    :within => 4..12
   validates_uniqueness_of   :login
   validates_format_of       :login,    :with => Authentication.login_regex, :message => Authentication.bad_login_message
 
@@ -71,6 +72,5 @@ class User < ActiveRecord::Base
     def make_activation_code
         self.activation_code = self.class.make_token
     end
-
 
 end

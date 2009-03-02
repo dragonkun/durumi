@@ -21,23 +21,23 @@ class ServicesControllerTest < ActionController::TestCase
   end
 
   test "should show service" do
-    get :show, :id => services(:one).id
+    get :show, :id => durumi_services(:one).id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => services(:one).id
+    get :edit, :id => durumi_services(:one).id
     assert_response :success
   end
 
   test "should update service" do
-    put :update, :id => services(:one).id, :service => { }
+    put :update, :id => durumi_services(:one).id, :service => { }
     assert_redirected_to service_path(assigns(:service))
   end
 
   test "should destroy service" do
     assert_difference('Service.count', -1) do
-      delete :destroy, :id => services(:one).id
+      delete :destroy, :id => durumi_services(:one).id
     end
 
     assert_redirected_to services_path

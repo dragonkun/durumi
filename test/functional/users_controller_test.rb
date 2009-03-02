@@ -9,7 +9,8 @@ class UsersControllerTest < ActionController::TestCase
   # Then, you can remove it from this and the units test.
   include AuthenticatedTestHelper
 
-  fixtures :users
+	set_fixture_class :durumi_users => User
+  fixtures :durumi_users
 
   def test_should_allow_signup
     assert_difference 'User.count' do
@@ -60,10 +61,10 @@ class UsersControllerTest < ActionController::TestCase
 
   def test_should_activate_user
     assert_nil User.authenticate('aaron', 'test')
-    get :activate, :activation_code => users(:aaron).activation_code
+    get :activate, :activation_code => durumi_users(:aaron).activation_code
     assert_redirected_to '/session/new'
     assert_not_nil flash[:notice]
-    assert_equal users(:aaron), User.authenticate('aaron', 'monkey')
+    assert_equal durumi_users(:aaron), User.authenticate('aaron', 'monkey')
   end
   
   def test_should_not_activate_user_without_key

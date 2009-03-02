@@ -25,6 +25,7 @@ class FeedsController < ApplicationController
   # GET /feeds/new.xml
   def new
     @feed = Feed.new
+		@services = Service.find :all
 
     respond_to do |format|
       format.html # new.html.erb

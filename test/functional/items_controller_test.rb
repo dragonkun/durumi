@@ -21,23 +21,23 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test "should show item" do
-    get :show, :id => items(:one).id
+    get :show, :id => durumi_items(:one).id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => items(:one).id
+    get :edit, :id => durumi_items(:one).id
     assert_response :success
   end
 
   test "should update item" do
-    put :update, :id => items(:one).id, :item => { }
+    put :update, :id => durumi_items(:one).id, :item => { }
     assert_redirected_to item_path(assigns(:item))
   end
 
   test "should destroy item" do
     assert_difference('Item.count', -1) do
-      delete :destroy, :id => items(:one).id
+      delete :destroy, :id => durumi_items(:one).id
     end
 
     assert_redirected_to items_path

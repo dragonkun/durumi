@@ -21,23 +21,23 @@ class FeedsControllerTest < ActionController::TestCase
   end
 
   test "should show feed" do
-    get :show, :id => feeds(:one).id
+    get :show, :id => durumi_feeds(:one).id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => feeds(:one).id
+    get :edit, :id => durumi_feeds(:one).id
     assert_response :success
   end
 
   test "should update feed" do
-    put :update, :id => feeds(:one).id, :feed => { }
+    put :update, :id => durumi_feeds(:one).id, :feed => { }
     assert_redirected_to feed_path(assigns(:feed))
   end
 
   test "should destroy feed" do
     assert_difference('Feed.count', -1) do
-      delete :destroy, :id => feeds(:one).id
+      delete :destroy, :id => durumi_feeds(:one).id
     end
 
     assert_redirected_to feeds_path
