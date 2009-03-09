@@ -28,22 +28,24 @@
         %h1 
           %a{:href => root_url} Durumi
       #submenu.span-6
-        - if logged_in?
-          #profile=current_user.login
-        %h2 Submenu
-        %ul
-          %li
-            %a{:href => ''} My feed
-          %li
-            %a{:href => ''} Favorites
-          %li
-            %a{:href => ''} Friends
-          %li
-            %a{:href => '/items'} Everyone
-      #main.span-17.last
-        - if flash[:notice]
-          #flash
-            = flash[:notice]
-        = yield
+        .box
+          - if logged_in?
+            #profile=current_user.login
+          %h2 Submenu
+          %ul
+            %li.first
+              %a{:href => ''} My feed
+            %li
+              %a{:href => ''} Favorites
+            %li
+              %a{:href => ''} Friends
+            %li
+              %a{:href => '/items'} Everyone
+      #main.span-18.last
+        .box
+          - if flash[:notice]
+            #flash
+              = flash[:notice]
+          = yield
       #footer.span-24.last
 

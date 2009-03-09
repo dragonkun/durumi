@@ -83,4 +83,14 @@ class FeedsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	def fetch
+    @feed = Feed.find(params[:id])
+		@feed.fetch
+
+    respond_to do |format|
+      format.html { redirect_to(feeds_url) }
+      format.xml  { head :ok }
+    end
+	end
 end
