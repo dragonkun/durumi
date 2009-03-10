@@ -67,9 +67,14 @@ input.text {
 }
 
 #submenu {
-	border: 1px solid #eee;
 	float: right;
-	padding: 0 0.5em;
+}
+
+#submenu .box {
+	border: 0.5em solid #eee;
+	padding: 0.5em;
+	background: white;
+	margin: 0.5em;
 }
 
 #submenu #profile {
@@ -77,7 +82,17 @@ input.text {
 }
 
 #submenu ul li {
-	border-bottom: 1px solid #eee;
+	border-top: 1px dotted #ddd;
+	padding: 0.2em 0;
+}
+
+#submenu ul li.first {
+	border-top: none;
+}
+
+
+#submenu ul li a {
+	border-bottom: none;
 }
 
 #submenu h2 {
@@ -89,6 +104,11 @@ input.text {
 	float: left;
 }
 
+#main .box {
+	padding: 0.5em 0;
+	background: white;
+}
+
 #main h2 {
 	color: #666;
 	border-bottom: 2px solid #eee;
@@ -97,8 +117,7 @@ input.text {
 #main ul li.item {
 	border: 2px solid #eee;
 	padding: 0.5em;
-	margin: 0.5em 0;
-	width: 100%;
+	margin-bottom: 0.5em;
 }
 
 #main ul li p.body {
@@ -130,9 +149,10 @@ input.text {
 }
 
 #flash {
-	border: 2px solid #eed;
-	background: #fafaee;
+	border: 2px solid #fec;
+	background: #fffadd;
 	margin-bottom: 1em;
+	padding:0.5em;
 }
 
 /*

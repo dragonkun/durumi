@@ -1,0 +1,23 @@
+<ul>
+<% for item in @items %>
+	<li class="item">
+		<h3><%= link_to h(item.title), item.link %></h3>
+		<p class="metadata">
+			<span class="datetime">
+				<%= h item.created_at.to_s(:db) %>
+			</span>
+			<ul>
+				<li><%= link_to '수정', edit_item_path(item) %></li>
+				<li><%= link_to '삭제', item, :confirm => 'Are you sure?', :method => :delete %></li>
+			</ul>
+		</p>
+		<p class="body">
+			<%= truncate((h item.body), :length => 200) %>
+		</p>
+	</li>
+<% end %>
+</ul>
+<%= will_paginate @items %>
+
+<%= link_to 'New item', new_item_path %>
+<%= link_to 'New feed', new_feed_path %>

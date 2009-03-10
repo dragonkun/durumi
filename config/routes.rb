@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.root :controller => 'items', :action => 'index'
+  map.admin '/admin', :controller => 'admin/dashboard', :action => 'index'
   map.resources :users, :collection => { :login_check => :get, :email_check => :get, :password_check => :get }
   map.resource :session
   map.resources :items
@@ -17,9 +18,12 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.namespace :admin do |admin|
-		admin.resources :users, :controller => 'admin/users'
-		admin.resources :feeds, :controller => 'admin/feeds'
-		admin.resources :items, :controller => 'admin/items'
+    admin.settings '/settings', :controller => 'settings'
+    admin.profile '/profile', :controller => 'profile'
+    admin.dashboard '/dashboard', :controller => 'dashboard'
+		admin.resources :users
+		admin.resources :feeds, :member => { :fetch => :post }
+		admin.resources :items
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

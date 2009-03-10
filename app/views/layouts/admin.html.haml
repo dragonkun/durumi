@@ -1,0 +1,24 @@
+!!! XML
+!!!
+%html
+  %head
+    %title
+    %link{:rel => 'stylesheet', :href => '/stylesheets/plugins/fancy-type/screen.css', :type => 'text/css', :media => 'screen, projection'}
+    %link{:rel => 'stylesheet', :href => '/stylesheets/plugins/buttons/screen.css', :type => 'text/css', :media => 'all'}
+    %link{:rel => 'stylesheet', :href => '/stylesheets/default.css', :type => 'text/css', :media => 'all'}
+    %link{:rel => 'stylesheet', :href => '/stylesheets/admin.css', :type => 'text/css', :media => 'all'}
+    %script{:type => 'text/javascript', :src => '/javascripts/jquery.js'}
+    %script{:type => 'text/javascript', :src => '/javascripts/application.js'}
+  %body#admin
+    %ul.menu
+      %li
+        %a{:href=>admin_dashboard_url}= t :dashboard
+      %li
+        %a{:href=>admin_settings_url}= t :settings
+      %li
+        %a{:href=>admin_profile_url}= t :profile
+      %li
+        %a{:href=>logout_url}= t :logout
+      %li
+        %a{:href=>root_url}= t :my_lifestream
+    #main= yield

@@ -1,0 +1,5 @@
+%table
+  - for item in @latest_items
+    %tr
+      %td
+        %a{:href=>item.link}=h(item.title)

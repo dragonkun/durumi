@@ -2,4 +2,13 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  dashboard: "Dashboard"
+  settings: "Settings"
+  profile: "Profile"
+  logout: "Logout"
+  my_lifestream: "My Lifestream"
+  statistics: "Statistics"
+  latest_items: "Latest Items"
+  total_feeds: "Total Feeds"
+  total_items: "Total Items"
+  total_comments: "Total Comments"

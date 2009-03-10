@@ -1,0 +1,14 @@
+# Sample localization file for Korean. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ko:
+  dashboard: "대시보드"
+  settings: "설정"
+  profile: "프로필"
+  logout: "로그아웃"
+  my_lifestream: "내 라이프스트림"
+  statistics: "통계"
+  latest_items: "최근 항목"
+  total_feeds: "총 피드 수"
+  total_items: "총 아이템 수"
+  total_comments: "총 댓글 수"

@@ -1,0 +1,35 @@
+<h1>Listing feeds</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Service</th>
+    <th>Title</th>
+    <th>Url</th>
+    <th>Image</th>
+    <th>Description</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+
+<% for feed in @feeds %>
+  <tr>
+    <td><%=h feed.user_id %></td>
+    <td><%=h feed.service_id %></td>
+    <td><%=h feed.title %></td>
+    <td><%=h feed.url %></td>
+    <td><%=h feed.image %></td>
+    <td><%=h feed.description %></td>
+    <td><%=h feed.created_at %></td>
+    <td><%=h feed.updated_at %></td>
+    <td><%= link_to 'Show', feed %></td>
+    <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
+    <td><%= link_to 'Destroy', feed, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Fetch', fetch_feed_path(feed), :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New feed', new_feed_path %>

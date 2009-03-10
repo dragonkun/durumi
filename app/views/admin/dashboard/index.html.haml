@@ -1,0 +1,17 @@
+%h1= t :dashboard
+.box
+  %h2= t :statistics
+  %table
+    %tr
+      %th= t :total_feeds
+      %td 12
+    %tr
+      %th= t :total_items
+      %td 102
+    %tr
+      %th= t :total_comments
+      %td 52
+
+.box
+  %h2= t :latest_items
+  =render :partial => 'latest_items'

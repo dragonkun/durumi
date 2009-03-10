@@ -18,6 +18,8 @@
             %a{:href => root_url} 홈
           - if logged_in?
             %li
+              %a{:href => admin_url} 관리자
+            %li
               %a{:href => logout_url} 로그아웃
           - else
             %li

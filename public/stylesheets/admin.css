@@ -1,0 +1,67 @@
+body#admin ul.menu {
+  width: 100%;
+  background: #222;
+  color: white;
+  border-bottom: 0.8em solid #555;
+  float:left;
+  padding: 1em 0;
+}
+
+body#admin ul.menu li {
+  float:left;
+}
+
+body#admin ul.menu a {
+  color: white;
+  width: 9em;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  padding: 0 1em;
+  border-right: 1px solid #aaa;
+  border-bottom: none;
+  font-family: Helvetica;
+  font-size-adjust:none;
+  font-style:normal;
+  font-variant:normal;
+  font-weight:bold;
+}
+
+body#admin #main {
+  clear: both;
+  width: 98%;
+  padding: 0.8em;
+  line-height: 160%;
+}
+
+body#admin a {
+	color: #444;
+}
+
+body#admin #main ul li.item ul li a {
+	color: #aaa;	
+	border-bottom: 1px dotted #aaa;
+}
+
+body#admin #main h1 {
+  font-size: 1.3em;
+  border-bottom: 2px solid #aaa;
+  padding: 0.2em 0;
+  margin: 0.2em 0;
+}
+
+body#admin #main h2 {
+  font-size: 1.1em;
+  border-bottom: 1px solid #aaa;
+  padding: 0.2em 0;
+}
+
+body#admin #main div {
+  padding: 0.4em 0;
+}
+
+body#admin #main .box {
+  border: 1px solid #ccc;
+  padding: 0 0.4em;
+  margin: 0.5em 0;
+}
