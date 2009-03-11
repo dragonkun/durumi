@@ -3,8 +3,8 @@ body#admin ul.menu {
   background: #222;
   color: white;
   border-bottom: 0.8em solid #555;
-  float:left;
   padding: 1em 0;
+  overflow: auto;
 }
 
 body#admin ul.menu li {
@@ -28,6 +28,7 @@ body#admin ul.menu a {
 }
 
 body#admin #main {
+  float:left;
   clear: both;
   width: 98%;
   padding: 0.8em;
@@ -65,3 +66,21 @@ body#admin #main .box {
   padding: 0 0.4em;
   margin: 0.5em 0;
 }
+
+body#admin #flash {
+  clear: both;
+	margin: 1em;
+	padding:0.5em;
+}
+
+body#admin #flash.notice {
+	border: 2px solid #fec;
+	background: #fffadd;
+}
+
+body#admin #flash.error {
+	border: 2px solid #fcc;
+	background: #ffdddd;
+}
+
+

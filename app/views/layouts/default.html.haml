@@ -12,20 +12,6 @@
     %script{:type => 'text/javascript', :src => '/javascripts/application.js'}
   %body
     .container
-      #menu.span-24.last
-        %ul
-          %li.home
-            %a{:href => root_url} 홈
-          - if logged_in?
-            %li
-              %a{:href => admin_url} 관리자
-            %li
-              %a{:href => logout_url} 로그아웃
-          - else
-            %li
-              %a{:href => login_url} 로그인
-            %li
-              %a{:href => signup_url} 회원가입
       #header.span-24.last
         %h1 
           %a{:href => root_url} Durumi
@@ -36,13 +22,17 @@
           %h2 Submenu
           %ul
             %li.first
-              %a{:href => ''} My feed
-            %li
-              %a{:href => ''} Favorites
-            %li
-              %a{:href => ''} Friends
-            %li
-              %a{:href => '/items'} Everyone
+              %a{:href => root_url} 홈
+            - if logged_in?
+              %li
+                %a{:href => admin_url} 관리자
+              %li
+                %a{:href => logout_url} 로그아웃
+            - else
+              %li
+                %a{:href => login_url} 로그인
+              %li
+                %a{:href => signup_url} 회원가입
       #main.span-18.last
         .box
           - if flash[:notice]

@@ -42,13 +42,14 @@ class Feed < ActiveRecord::Base
 		# self.save
 
 		feed.entries.each do |entry|
-			new_item = Item.new
-			new_item.feed_id = 1 ## FIXME: Hard coding for test
-			new_item.title = entry.title
-			new_item.link = CGI::unescape(entry.link)
-			new_item.body = entry.content[0].value.gsub(/<\/?[^>]*>/, "") if entry.content
-			new_item.save
-
+      if Item.find_by_link(entry.link) == nil
+        new_item = Item.new
+        new_item.feed_id = 1 ## FIXME: Hard coding for test
+        new_item.title = entry.title
+        new_item.link = CGI::unescape(entry.link)
+        new_item.body = entry.content[0].value.gsub(/<\/?[^>]*>/, "") if entry.content
+        new_item.save
+      end
 		end
 	end
 end
