@@ -1,8 +1,8 @@
 class CreateFeedsettings < ActiveRecord::Migration
   def self.up
     create_table :feedsettings do |t|
-      t.decimal :user_id
-      t.decimal :service_id
+      t.integer :user_id
+      t.integer :service_id
       t.string :parameter
 
       t.timestamps

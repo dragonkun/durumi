@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :feedsettings
+
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
@@ -8,6 +10,21 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :collection => { :login_check => :get, :email_check => :get, :password_check => :get }
   map.resource :session
   map.resources :items
+  map.namespace :services do |services|
+    services.me2day '/me2day', :controller => 'me2day'
+    services.friendfeed '/friendfeed', :controller => 'friendfeed'
+    services.blog '/blog', :controller => 'blog'
+    services.delicious '/delicious', :controller => 'delicious'
+    services.googlereader '/googlereader', :controller => 'googlereader'
+    services.lastfm '/lastfm', :controller => 'lastfm'
+    services.youtube '/youtube', :controller => 'youtube'
+    services.flickr '/flickr', :controller => 'flickr'
+    services.twitter '/twitter', :controller => 'twitter'
+    services.customfeed '/customfeed', :controller => 'customfeed'
+    services.lemonpen '/lemonpen', :controller => 'lemonpen'
+    services.springnote '/springnote', :controller => 'springnote'
+    services.rollinglist '/rollinglist', :controller => 'rollinglist'
+  end
   map.resources :services
   map.resources :feeds, :member => { :fetch => :post }
 
