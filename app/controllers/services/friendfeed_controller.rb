@@ -1,4 +1,4 @@
-class Services::Me2dayController < ServicesController
+class Services::FriendfeedController < ServicesController
   
   def index
     @feedsetting = Feedsetting.new

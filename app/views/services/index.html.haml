@@ -1,12 +1,25 @@
-%h1 Listing services
+%h1 Add services
+%strong usage:
+%p Using below link 'add new services here', you can add the following name of supporting services into database.
+%p Supporting services are me2day, friendfeed, blog, delicious, googlereader, lastfm, youtube, flickr, twitter, customfeed, lemonpen, springnote, and rollinglist.
 
-%h2 Name
+#initialize
+-if @services.length <= 0
+  -list_services = ["me2day", "friendfeed","blog","delicious","googlereader","lastfm","youtube","flickr","twitter","customfeed","lemonpen","springnote","rollinglist"]
+  -for list_service in list_services
+    -f = Service.new
+    -f.name = list_service
+    -f.save
+  -redirect_to(services_url)
 
-%ol
--for service in @services 
-  %li
-    %img{:src => 'images/'+service.name+'.png', :alt => service.name}
-    = link_to service.name, "services/"+service.name
+#listing_services
+  %ol
+  -for service in @services 
+    %li
+      %img{:src => 'images/'+service.name+'.png', :alt => service.name}
+      = link_to service.name, "services/"+service.name
+#new_service
+  = link_to "Add new services here", new_service_url
 
 %br/
 
