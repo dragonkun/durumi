@@ -1,0 +1,15 @@
+%h1 Me2day service
+
+-form_for(@feedsetting) do |f|
+  = f.error_messages
+  %p 
+    = "Enter username"
+    %br/
+    = f.label :parameter 
+    %br/
+    = f.text_field :parameter
+  %p
+    = f.submit "Create"
+
+=link_to 'Back', services_path
+

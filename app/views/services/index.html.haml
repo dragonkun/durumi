@@ -1,0 +1,12 @@
+%h1 Listing services
+
+%h2 Name
+
+%ol
+-for service in @services 
+  %li
+    %img{:src => 'images/'+service.name+'.png', :alt => service.name}
+    = link_to service.name, "services/"+service.name
+
+%br/
+
