@@ -1,0 +1,2 @@
+module FeedsettingsHelper
+end
