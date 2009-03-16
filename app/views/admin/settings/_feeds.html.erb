@@ -1,7 +1,5 @@
 <table>
   <tr>
-    <th>User</th>
-    <th>Service</th>
     <th>Title</th>
     <th>Url</th>
     <th>Image</th>
@@ -12,8 +10,6 @@
 
 <% for feed in @feeds %>
   <tr>
-    <td><%=h feed.user_id %></td>
-    <td><%=h feed.service_id %></td>
     <td><%=h feed.title %></td>
     <td><%=h feed.url %></td>
     <td><%=h feed.image %></td>
@@ -30,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New feed', new_admin_feed_path, :class => 'button' %>
+<%= link_to t(:import_site), new_admin_feed_path, :class => 'button' %>

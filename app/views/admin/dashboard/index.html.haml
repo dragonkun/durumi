@@ -4,13 +4,13 @@
   %table
     %tr
       %th= t :total_feeds
-      %td 12
+      %td= @feeds_count
     %tr
       %th= t :total_items
-      %td 102
+      %td= @items_count
     %tr
       %th= t :total_comments
-      %td 52
+      %td= @comments_count
 
 .box
   %h2= t :latest_items

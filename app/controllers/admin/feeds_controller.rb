@@ -16,9 +16,15 @@ class Admin::FeedsController < AdminController
     @feed = Feed.new
 		@services = Service.find :all
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @feed }
+		respond_to do |format|
+			if params[:service_identifier]
+				format.html { render :partial => params[:service_identifier], :layout => 'admin' }
+				format.xml  { render :xml => @feed }
+			else
+				format.html # new.html.erb
+				format.xml  { render :xml => @feed }
+				
+			end
     end
   end
 

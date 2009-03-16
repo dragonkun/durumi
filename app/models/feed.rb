@@ -14,12 +14,12 @@ class Feed < ActiveRecord::Base
 	def fetch
 		header = {}
 
-		# if self.lastmod
-		# 	header["If-Modified-Match"] = self.lastmod
-		#	end
-		# if self.etag
-		#		header["If-None-Match"] = self.etag
-		#	end
+		if self.lastmod
+		 	header["If-Modified-Match"] = self.lastmod
+		end
+		if self.etag
+				header["If-None-Match"] = self.etag
+		end
 
 		unless header.empty?
 			begin
@@ -33,18 +33,18 @@ class Feed < ActiveRecord::Base
 		end
 		
 		begin 
-			#feed = FeedParser.parse(self.url, { :etag => self.etag, :modified => self.modified_at })
-			feed = FeedParser.parse(self.url)
+			feed = FeedParser.parse(self.url, { :etag => self.etag, :modified => self.lastmod })
+		#	feed = FeedParser.parse(self.url)
 		end
 
-		# self.etag = feed.result['etag']
-		# self.modified_at = feed.result['modified']
-		# self.save
+		self.etag = feed.etag
+		self.lastmod = feed.modified
+		self.save
 
 		feed.entries.each do |entry|
       if Item.find_by_link(entry.link) == nil
         new_item = Item.new
-        new_item.feed_id = 1 ## FIXME: Hard coding for test
+        new_item.feed_id = self.id
         new_item.title = entry.title
         new_item.link = CGI::unescape(entry.link)
         new_item.body = entry.content[0].value.gsub(/<\/?[^>]*>/, "") if entry.content

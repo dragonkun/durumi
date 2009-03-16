@@ -1,0 +1,14 @@
+%h1 Friendfeed service
+
+-form_for(@feed) do |f|
+  = f.error_messages
+  %p
+    %img{:src => "/images/friendfeed.png", :alt => "friendfeed"}
+    = "Friendfeed username"
+    %br/
+    = f.text_field :user_id
+  %p
+    = f.submit "Create"
+
+=link_to 'Back', services_path
+

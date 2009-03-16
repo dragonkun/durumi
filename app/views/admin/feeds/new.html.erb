@@ -1,49 +1,5 @@
 <ul>
 	<% for service in @services %>
-	<li><%= service.name %></li>
+	<li><%=image_tag(service.identifier + '.png') %> <%= link_to service.name, admin_new_feed_by_service_identifier_url(service.identifier) %></li>
 	<% end %>
 </ul>
-
-<h1>New feed</h1>
-
-<% form_for(@feed, :url => admin_feeds_url, :method => :post) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id, { :class => 'text' } %>
-  </p>
-  <p>
-    <%= f.label :service_id %><br />
-    <%= f.text_field :service_id, { :class => 'text' } %>
-  </p>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title, { :class => 'text' } %>
-  </p>
-  <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url, { :class => 'text' } %>
-  </p>
-  <p>
-    <%= f.label :image %><br />
-    <%= f.text_field :image, { :class => 'text' } %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description, { :class => 'text' } %>
-  </p>
-  <p>
-    <%= f.label :created_at %><br />
-    <%= f.datetime_select :created_at, { :class => 'text' } %>
-  </p>
-  <p>
-    <%= f.label :updated_at %><br />
-    <%= f.datetime_select :updated_at, { :class => 'text' } %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', admin_feeds_path %>

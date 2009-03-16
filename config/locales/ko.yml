@@ -12,3 +12,4 @@ ko:
   total_feeds: "총 피드 수"
   total_items: "총 아이템 수"
   total_comments: "총 댓글 수"
+  import_site: "사이트 가져오기"

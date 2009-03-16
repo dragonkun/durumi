@@ -1,7 +1,7 @@
 <ul>
 <% for item in @items %>
 	<li class="item">
-		<h3><%= link_to h(item.title), item.link %></h3>
+		<h3><%= image_tag(item.feed.service.identifier+'.png') %> <%= link_to h(item.title), item.link %></h3>
 		<p class="metadata">
 			<span class="datetime">
 				<%= h item.created_at.to_s(:db) %>

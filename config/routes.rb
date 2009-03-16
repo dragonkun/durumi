@@ -39,7 +39,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.profile '/profile', :controller => 'profile'
     admin.dashboard '/dashboard', :controller => 'dashboard'
 		admin.resources :users
+
 		admin.resources :feeds, :member => { :fetch => :post }
+		admin.new_feed_by_service_identifier '/feeds/new/:service_identifier', :controller => 'feeds', :action => 'new'
+
 		admin.resources :items
   end
 
