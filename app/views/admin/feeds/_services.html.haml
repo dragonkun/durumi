@@ -1,0 +1,6 @@
+%h1= t :supported_site
+%ul.services
+  - for service in @services
+    %li
+      %img{:src => '/images/'+service.identifier+'.png', :alt => service.name}
+      %a{:href => admin_new_feed_by_service_identifier_url(service.identifier)}= service.name

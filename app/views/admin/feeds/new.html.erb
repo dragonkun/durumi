@@ -1,5 +1,1 @@
-<ul>
-	<% for service in @services %>
-	<li><%=image_tag(service.identifier + '.png') %> <%= link_to service.name, admin_new_feed_by_service_identifier_url(service.identifier) %></li>
-	<% end %>
-</ul>
+<%= render :partial => 'services' %>

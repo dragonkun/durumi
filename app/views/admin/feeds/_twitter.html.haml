@@ -1,3 +1,4 @@
+=render :partial => 'services'
 %h1 Twitter service
 
 -form_for(@feed) do |f|
@@ -6,9 +7,6 @@
     %img{:src => "/images/twitter.png", :alt => "me2day"}
     = "Twitter username"
     %br/
-    = f.text_field :user_id
+    = f.text_field :user_id, { :class => 'text' }
   %p
     = f.submit "Create"
-
-=link_to 'Back', services_path
-

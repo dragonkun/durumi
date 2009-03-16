@@ -13,3 +13,7 @@ en:
   total_items: "Total Items"
   total_comments: "Total Comments"
   import_site: "Import Site"
+  supported_site: "Supported Site"
+  home: "Home"
+  login: "Login"
+  admin: "Administrator"

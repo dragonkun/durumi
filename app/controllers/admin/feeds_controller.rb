@@ -36,7 +36,10 @@ class Admin::FeedsController < AdminController
   # POST /feeds
   # POST /feeds.xml
   def create
+    @site_parameter = params[:site]
     @feed = Feed.new(params[:feed])
+    @feed.set_site_feed(@site_parameter)
+    @feed.user = current_user
 
     respond_to do |format|
       if @feed.save
