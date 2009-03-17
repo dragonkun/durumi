@@ -4,6 +4,7 @@ class CreateServices < ActiveRecord::Migration
       t.string :name
       t.timestamps
     end
+
   end
 
   def self.down
