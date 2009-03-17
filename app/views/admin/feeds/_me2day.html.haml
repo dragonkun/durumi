@@ -1,14 +1,15 @@
+=render :partial => 'services'
+
+- @service = Service.find_by_identifier("me2day")
 %h1 Me2day service
 
--form_for(@feed) do |f|
+-form_for(@feed, :url => admin_feeds_url, :action => :post) do |f|
   = f.error_messages
   %p
     %img{:src => "/images/me2day.png", :alt => "me2day"}
     = "Me2day username"
     %br/
-    = f.text_field :user_id
+    = hidden_field_tag 'feed[service_id]', @service.id
+    = text_field :site, :parameter, { :class => 'text' }
   %p
     = f.submit "Create"
-
-=link_to 'Back', services_path
-

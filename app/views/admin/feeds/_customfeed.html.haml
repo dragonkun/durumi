@@ -1,14 +1,12 @@
+=render :partial => 'services'
 %h1 Customfeed service
 
 -form_for(@feed) do |f|
   = f.error_messages
   %p
-    %img{:src => "../images/customfeed.png", :alt => "me2day"}
+    %img{:src => "/images/customfeed.png", :alt => "Custom RSS"}
     = "Custom RSS/Atom URL"
     %br/
-    = f.text_field :user_id
+    = f.text_field :user_id, { :class => 'text' }
   %p
     = f.submit "Create"
-
-=link_to 'Back', services_path
-

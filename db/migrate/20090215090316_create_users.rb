@@ -1,6 +1,6 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
-    create_table "durumi_users", :force => true do |t|
+    create_table "users", :force => true do |t|
       t.column :login,                     :string, :limit => 40
       t.column :name,                      :string, :limit => 100, :default => '', :null => true
       t.column :email,                     :string, :limit => 100
@@ -14,10 +14,10 @@ class CreateUsers < ActiveRecord::Migration
       t.column :activated_at,              :datetime
 
     end
-    add_index :durumi_users, :login, :unique => true
+    add_index :users, :login, :unique => true
   end
 
   def self.down
-    drop_table "durumi_users"
+    drop_table "users"
   end
 end

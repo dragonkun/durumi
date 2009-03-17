@@ -1,3 +1,4 @@
+=render :partial => 'services'
 %h1 Last.fm service
 
 -form_for(@feed) do |f|
@@ -6,9 +7,6 @@
     %img{:src => "/images/lastfm.png", :alt => "me2day"}
     = "Last.fm username"
     %br/
-    = f.text_field :user_id
+    = f.text_field :user_id, { :class => 'text' }
   %p
     = f.submit "Create"
-
-=link_to 'Back', services_path
-

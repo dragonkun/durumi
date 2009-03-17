@@ -1,6 +1,6 @@
 class CreateItems < ActiveRecord::Migration
   def self.up
-    create_table :durumi_items do |t|
+    create_table :items do |t|
       t.integer :feed_id
       t.string :title
       t.string :link
@@ -12,6 +12,6 @@ class CreateItems < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :durumi_items
+    drop_table :items
   end
 end

@@ -1,3 +1,4 @@
+<h1>Items</h1>
 <ul>
 <% for item in @items %>
 	<li class="item">
@@ -20,4 +21,3 @@
 <%= will_paginate @items %>
 
 <%= link_to 'New item', new_item_path %>
-<%= link_to 'New feed', new_feed_path %>

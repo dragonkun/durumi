@@ -13,3 +13,7 @@ ko:
   total_items: "총 아이템 수"
   total_comments: "총 댓글 수"
   import_site: "사이트 가져오기"
+  supported_site: "지원되는 사이트"
+  home: "홈"
+  login: "로그인"
+  admin: "관리자"

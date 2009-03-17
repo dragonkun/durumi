@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
 
-	set_table_name :durumi_users
 	has_many :feeds
 
   validates_presence_of     :login

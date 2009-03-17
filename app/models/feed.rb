@@ -6,10 +6,11 @@ require 'iconv'
 require 'cgi'
 
 class Feed < ActiveRecord::Base
-	set_table_name 'durumi_feeds'
-
 	has_many :items, :dependent => :destroy
 	belongs_to :service
+  belongs_to :user
+
+  validates_uniqueness_of :url
 
 	def fetch
 		header = {}
@@ -52,4 +53,11 @@ class Feed < ActiveRecord::Base
       end
 		end
 	end
+
+  def set_site_feed(site)
+    self.url = case self.service.identifier
+      when "me2day":
+        "http://me2day.net/#{site[:parameter]}/rss"
+    end
+  end
 end
