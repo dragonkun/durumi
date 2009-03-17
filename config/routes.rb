@@ -9,7 +9,10 @@ ActionController::Routing::Routes.draw do |map|
   map.admin '/admin', :controller => 'admin/dashboard', :action => 'index'
   map.resources :users, :collection => { :login_check => :get, :email_check => :get, :password_check => :get }
   map.resource :session
+
   map.resources :items
+  map.page_base_items '/items/page/:page', :controller => 'items'
+
   map.namespace :services do |services|
     services.me2day '/me2day', :controller => 'me2day'
     services.friendfeed '/friendfeed', :controller => 'friendfeed'
