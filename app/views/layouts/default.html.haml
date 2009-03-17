@@ -11,23 +11,22 @@
     %script{:type => 'text/javascript', :src => '/javascripts/jquery.js'}
     %script{:type => 'text/javascript', :src => '/javascripts/application.js'}
   %body#admin
-    %ul.menu
-      %li.first
-        %h1 Durumi
-      %li
-        %a{:href=>root_url}= t :home
-      - if !logged_in?
+    #header
+      %h1 Durumi
+      %ul.menu
+        %li.first
+          %a{:href=>root_url}= t :home
+        - if !logged_in?
+          %li
+            %a{:href=>login_url}= t :login
+        - else
+          %li
+            %a{:href=>logout_url}= t :logout
         %li
-          %a{:href=>login_url}= t :login
-      - else
-        %li
-          %a{:href=>logout_url}= t :logout
-      %li
-        %a{:href=>admin_url}= t :admin
-    - if flash[:notice]
-      #flash.notice
-        = flash[:notice]
-    - if flash[:error]
-      #flash.error
-        = flash[:error]
-    #main= yield
+          %a{:href=>admin_url}= t :admin
+    #main
+      - if flash[:notice]
+        #flash.notice= flash[:notice]
+      - if flash[:error]
+        #flash.error= flash[:error]
+      .content= yield
