@@ -38,6 +38,12 @@ class Feed < ActiveRecord::Base
 		#	feed = FeedParser.parse(self.url)
 		end
 
+		self.etag = feed.etag
+		self.lastmod = feed.modified
+    self.title = feed.feed.title
+    self.image = feed.feed.image
+		self.save
+
 		feed.entries.each do |entry|
       if Item.find_by_link(entry.link) == nil && Item.find_by_guid(entry.guid) == nil
         new_item = Item.new
@@ -50,12 +56,6 @@ class Feed < ActiveRecord::Base
         new_item.save
       end
 		end
-
-		self.etag = feed.etag
-		self.lastmod = feed.modified
-    self.title = feed.feed.title
-    self.image = feed.feed.image
-		self.save
 	end
 
   def set_site_feed(site)

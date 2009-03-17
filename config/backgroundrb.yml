@@ -6,4 +6,4 @@
 :schedules:
   :aggregation_worker:
     :fetch:
-      :trigger_args: 0 * * * * * *
+      :trigger_args: 0 * * * * *
