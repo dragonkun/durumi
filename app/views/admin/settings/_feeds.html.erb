@@ -12,7 +12,7 @@
   <tr>
     <td><%=h feed.title %></td>
     <td><%=h feed.url %></td>
-    <td><%=h feed.image %></td>
+    <td><%=image_tag feed.image if feed.image %></td>
     <td><%=h feed.description %></td>
     <td><%=h feed.created_at %></td>
     <td><%=h feed.updated_at %></td>

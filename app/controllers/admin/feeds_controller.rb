@@ -44,7 +44,7 @@ class Admin::FeedsController < AdminController
     respond_to do |format|
       if @feed.save
         flash[:notice] = 'Feed was successfully created.'
-        format.html { redirect_to(admin_feed_url(@feed)) }
+        format.html { redirect_to(admin_settings_url) }
         format.xml  { render :xml => @feed, :status => :created, :location => @feed }
       else
         format.html { render :action => "new" }

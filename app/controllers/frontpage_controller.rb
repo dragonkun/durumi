@@ -1,7 +1,7 @@
 class FrontpageController < ApplicationController
 
 	def index
-		#redirect
+		redirect_to items_url
 	end
 
 end

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
 	before_filter :check_xhr?, :only => [:login_check, :email_check, :password_check]
+  skip_before_filter :has_admin_user, :only => [:new, :create, :check_xhr?, :login_check, :email_check, :password_check]
 
   # render new.rhtml
   def new

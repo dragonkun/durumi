@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   # GET /items.xml
   def index
 		@items = Item.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 15
+    @services = Service.find :all
+		@feeds = Feed.find :all
 
     respond_to do |format|
       format.html # index.html.erb
