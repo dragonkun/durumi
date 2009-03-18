@@ -16,14 +16,14 @@
     <td><%=h feed.description %></td>
     <td><%=h feed.created_at %></td>
     <td><%=h feed.updated_at %></td>
-    <td><%= link_to 'Show', feed, :class => 'button' %></td>
-    <td><%= link_to 'Edit', edit_feed_path(feed), :class => 'button' %></td>
+    <td><%= link_to 'Show', admin_feed_url(feed), :class => 'button' %></td>
+    <td><%= link_to 'Edit', edit_admin_feed_url(feed), :class => 'button' %></td>
     <td><%= link_to 'Destroy', admin_feed_url(feed), :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
-    <td><%= link_to 'Fetch', fetch_admin_feed_path(feed), :confirm => 'Are you sure?', :method => :post, :class => 'button' %></td>
+    <td><%= link_to 'Fetch', fetch_admin_feed_url(feed), :confirm => 'Are you sure?', :method => :post, :class => 'button' %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to t(:import_site), new_admin_feed_path, :class => 'button' %>
+<%= link_to t(:import_site), new_admin_feed_url, :class => 'button' %>

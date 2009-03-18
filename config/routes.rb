@@ -26,13 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     services.rollinglist '/rollinglist', :controller => 'rollinglist'
   end
   map.resources :services
-  map.resources :feeds, :member => { :fetch => :post }
-
-  map.resources :users do |users|
-		users.resources :feeds, :member => { :fetch => :post } do |feeds|
-			feeds.resources :items
-		end
-  end
+	map.page_base_items '/items/pages/:page/', :controller => 'items', :action => 'index'
 
   map.namespace :admin do |admin|
     admin.settings '/settings', :controller => 'settings'

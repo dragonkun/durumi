@@ -3,6 +3,7 @@
 %html
   %head
     %title
+    %link{:rel => 'alternate', :type => 'application/rss+xml', :title => 'Recent Items', :href => formatted_items_url(:rss)}
     %link{:rel => 'stylesheet', :href => '/stylesheets/plugins/fancy-type/screen.css', :type => 'text/css', :media => 'screen, projection'}
     / [if IE]<link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"> 
     %link{:rel => 'stylesheet', :href => '/stylesheets/plugins/buttons/screen.css', :type => 'text/css', :media => 'all'}
@@ -18,8 +19,6 @@
           %a{:href=>admin_dashboard_url}= t :dashboard
         %li
           %a{:href=>admin_settings_url}= t :settings
-        %li
-          %a{:href=>admin_profile_url}= t :profile
         %li
           %a{:href=>logout_url}= t :logout
         %li

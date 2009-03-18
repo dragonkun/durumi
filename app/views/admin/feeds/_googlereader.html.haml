@@ -1,12 +1,15 @@
 =render :partial => 'services'
-%h1 Me2day service
 
--form_for(@feed) do |f|
+- @service = Service.find_by_identifier("googlereader")
+%h1 Google Reader service
+
+-form_for(@feed, :url => admin_feeds_url, :action => :post) do |f|
   = f.error_messages
   %p
-    %img{:src => "/images/googlereader.png", :alt => "me2day"}
+    %img{:src => "/images/googlereader.png", :alt => "googlereader"}
     = "Your Google Reader URL(You can find the URL from Google Reader shared items page)"
     %br/
-    = f.text_field :user_id, { :class => 'text' }
+    = hidden_field_tag 'feed[service_id]', @service.id
+    = text_field :site, :parameter, { :class => 'text' }
   %p
     = f.submit "Create"
