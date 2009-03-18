@@ -4,11 +4,18 @@
     <li class="current"><a href="" class="active">Service</a></li>
     <li><a href="">Feed</a></li>
   </ul>
-  <ul>
+  <ul id="filter_by_service">
     <% for service in @services %>
     <li style="float:left;padding:0.2em 0.5em;width:15em;"><input type="checkbox" /> <%=image_tag("/images/#{service.identifier}.png")%> <%= service.name %></li>
     <% end %>
   </ul>
+	<div style="clear:both;"><input type="button" value="check all" /> <input type="button" value="uncheck all" /> <input type="submit" value="apply" /></div>
+	<ul id="filter_by_feed">
+    <% for feed in @feeds %>
+    <li style="float:left;padding:0.2em 0.5em;width:15em;"><input type="checkbox" /> <%=image_tag("/images/#{feed.service.identifier}.png")%> <%= feed.title %></li>
+    <% end %>
+  </ul>
+	<div style="clear:both;"><input type="button" value="check all" /> <input type="button" value="uncheck all" /> <input type="submit" value="apply" /></div>
 </div>
 <div style="float:left;width:74%;">
   <h1>Items</h1>
@@ -27,14 +34,6 @@
       </p>
     </li>
   <% end %>
-  </ul>
-</div>
-<div style="float:right;width:25%;">
-  <h1>Feeds</h1>
-  <ul>
-    <% for feed in @feeds %>
-    <li style="float:left;padding:0.2em 0.5em;width:15em;"><input type="checkbox" /> <%=image_tag("/images/#{feed.service.identifier}.png")%> <%= feed.title %></li>
-    <% end %>
   </ul>
 </div>
 <%= will_paginate @items %>

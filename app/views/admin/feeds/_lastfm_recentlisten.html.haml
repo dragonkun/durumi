@@ -6,7 +6,7 @@
 -form_for(@feed, :url => admin_feeds_url, :action => :post) do |f|
   = f.error_messages
   %p
-    %img{:src => "/images/lastfm.png", :alt => "me2day"}
+    %img{:src => "/images/lastfm.png", :alt => "lastfm_recentlisten"}
     = "Last.fm username"
     %br/
     = hidden_field_tag 'feed[service_id]', @service.id

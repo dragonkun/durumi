@@ -26,7 +26,7 @@ class Feed < ActiveRecord::Base
 			begin
 				open(self.url, header) do |f|
 					self.etag = f.meta['etag']
-					self.lastmod =  f.last_modified
+					self.lastmod =  f.modified_time
 				end
 			rescue OpenURI::HTTPError
 				# TODO: Maybe Not Modified...
@@ -35,7 +35,6 @@ class Feed < ActiveRecord::Base
 		
 		begin 
 			feed = FeedParser.parse(self.url, { :etag => self.etag, :modified => self.lastmod })
-		#	feed = FeedParser.parse(self.url)
 		end
 
 		self.etag = feed.etag

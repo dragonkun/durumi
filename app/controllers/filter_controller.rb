@@ -1,0 +1,2 @@
+class FilterController < ApplicationController
+end

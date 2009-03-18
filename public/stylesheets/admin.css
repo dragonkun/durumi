@@ -156,21 +156,20 @@ div.pagination span.current {
   background: #fff;
   font: bold 1em "Trebuchet MS", Arial, sans-serif;
   border: 1px solid black;
-  padding: 2px 5px 0px 5px;
+  padding: 2px 8px 0px 8px;
   margin: 0;
   text-decoration: none; 
-  border-bottom: 3px solid #fff; 
 }
 
 #filter_tab a.active {
   background: #fff;
-  border-bottom: 4px solid #fff; 
+  border-bottom: 1px solid #fff; 
 }
 
 #filter_tab a:hover {
   color: #fff;
   background: #eee; 
-  border-bottom: 3px solid #eee; 
+  border-bottom: 1px solid #000; 
 }
 
 #filter_tab a:visited {
@@ -179,6 +178,6 @@ div.pagination span.current {
 
 #filter_tab a.active:hover {
   background: #fff; 
-  border-bottom: 4px solid #fff; 
+  border-bottom: 1px solid #fff; 
 }
 
