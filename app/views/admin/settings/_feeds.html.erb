@@ -2,7 +2,6 @@
   <tr>
     <th>Title</th>
     <th>Url</th>
-    <th>Image</th>
     <th>Description</th>
     <th>Created at</th>
     <th>Updated at</th>
@@ -14,16 +13,14 @@
     <td><%=h feed.url %></td>
     <td><%=image_tag feed.image if feed.image %></td>
     <td><%=h feed.description %></td>
-    <td><%=h feed.created_at %></td>
-    <td><%=h feed.updated_at %></td>
-    <td><%= link_to 'Show', admin_feed_url(feed), :class => 'button' %></td>
-    <td><%= link_to 'Edit', edit_admin_feed_url(feed), :class => 'button' %></td>
+    <td><%=feed.created_at.to_s(:db) %></td>
+    <td><%=feed.updated_at.to_s(:db) %></td>
     <td><%= link_to 'Destroy', admin_feed_url(feed), :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
     <td><%= link_to 'Fetch', fetch_admin_feed_url(feed), :confirm => 'Are you sure?', :method => :post, :class => 'button' %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
+<div>
 <%= link_to t(:import_site), new_admin_feed_url, :class => 'button' %>
+</div>
+

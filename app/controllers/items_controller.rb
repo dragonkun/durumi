@@ -2,9 +2,33 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
   def index
-		@items = Item.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 15
+    items_all = Item.find(:all, :order => 'created_at desc')
     @services = Service.find :all
 		@feeds = Feed.find :all
+    @items = []
+
+    target = []
+    if cookies["filter_type"] && cookies["filter_type"] == "service"
+      for service in @services
+        target << service if cookies[service.identifier] == 'on'
+      end
+
+      items_all.each do |i|
+        @items << i if target.include?(i.feed.service)
+      end
+      @items = @items.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 15
+    elsif cookies["filter_type"] && cookies["filter_type"] == "feed"
+      for feed in @feeds
+        target << feed if cookies[feed.id] == 'on'
+      end
+
+      items_all.each do |i|
+        @items << i if target.include?(i.feed)
+      end
+      @items = @items.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 15
+    else
+      @items = items_all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 15
+    end
 
     respond_to do |format|
       format.html # index.html.erb

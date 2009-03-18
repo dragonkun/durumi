@@ -20,4 +20,19 @@ $(function() {
 		});
 	});
 
+  $("#feed_filter_form").css("display", "none")
+
+  $("#filter_tab .service_filter").click(function() {
+    $("#filter_tab .service_filter").toggleClass("active")
+    $("#service_filter_form").css("display", "block")
+    $("#feed_filter_form").css("display", "none")
+  });
+
+  $("#filter_tab .feed_filter").click(function() {
+    $("#filter_tab .feed_filter").toggleClass("active")
+    $("#service_filter_form").css("display", "none")
+    $("#feed_filter_form").css("display", "block")
+  });
+
 });
+

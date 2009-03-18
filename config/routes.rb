@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.root :controller => 'frontpage', :action => 'index'
+  map.filter '/filter', :controller => 'filter', :action => 'index'
   map.admin '/admin', :controller => 'admin/dashboard', :action => 'index'
   map.resources :users, :collection => { :login_check => :get, :email_check => :get, :password_check => :get }
   map.resource :session

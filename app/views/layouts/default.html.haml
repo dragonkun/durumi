@@ -3,7 +3,6 @@
 %html
   %head
     %title
-    %link{:rel => 'alternate', :type => 'application/rss+xml', :title => 'Recent Items', :href => formatted_items_url(:rss)}
     %link{:rel => 'stylesheet', :href => '/stylesheets/plugins/fancy-type/screen.css', :type => 'text/css', :media => 'screen, projection'}
     / [if IE]<link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"> 
     %link{:rel => 'stylesheet', :href => '/stylesheets/plugins/buttons/screen.css', :type => 'text/css', :media => 'all'}
@@ -16,13 +15,15 @@
       %h1 Durumi
       %ul.menu
         %li.first
-          %a{:href=>admin_dashboard_url}= t :dashboard
+          %a{:href=>root_url}= t :home
+        - if !logged_in?
+          %li
+            %a{:href=>login_url}= t :login
+        - else
+          %li
+            %a{:href=>logout_url}= t :logout
         %li
-          %a{:href=>admin_settings_url}= t :settings
-        %li
-          %a{:href=>logout_url}= t :logout
-        %li
-          %a{:href=>root_url}= t :my_lifestream
+          %a{:href=>admin_url}= t :admin
     #main
       - if flash[:notice]
         #flash.notice= flash[:notice]

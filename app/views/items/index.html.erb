@@ -1,25 +1,27 @@
 <div style="float:right;width:25%;">
   <h1>Filter</h1>
   <ul id="filter_tab">
-    <li class="current"><a href="" class="active">Service</a></li>
-    <li><a href="">Feed</a></li>
+    <li class="service_filter current"><a class="active" href="#">Service</a></li>
+    <li class="feed_filter" href="#"><a>Feed</a></li>
   </ul>
+  <form id="service_filter_form" action="<%= filter_url %>">
   <ul id="filter_by_service">
     <% for service in @services %>
-    <li style="float:left;padding:0.2em 0.5em;width:15em;"><input type="checkbox" /> <%=image_tag("/images/#{service.identifier}.png")%> <%= service.name %></li>
+    <li style="float:left;padding:0.2em 0.5em;width:15em;"><input name="service_filter[<%=service.identifier%>]" type="checkbox" <%= 'checked="checked"' if cookies[service.identifier] == 'on' %> /> <%=image_tag("/images/#{service.identifier}.png")%> <%= service.name %></li>
     <% end %>
   </ul>
-	<div style="clear:both;"><input type="button" value="check all" /> <input type="button" value="uncheck all" /> <input type="submit" value="apply" /></div>
+	<div style="clear:both;"><input type="submit" value="apply" /></div>
+  </form>
+  <form id="feed_filter_form" action="<%= filter_url %>">
 	<ul id="filter_by_feed">
     <% for feed in @feeds %>
-    <li style="float:left;padding:0.2em 0.5em;width:15em;"><input type="checkbox" /> <%=image_tag("/images/#{feed.service.identifier}.png")%> <%= feed.title %></li>
+    <li style="float:left;padding:0.2em 0.5em;width:15em;"><input name="feed_filter[<%=feed.id%>]" type="checkbox" <%= 'checked="checked"' if cookies[feed.id] == 'on' %> /> <%=image_tag("/images/#{feed.service.identifier}.png")%> <%= feed.title %></li>
     <% end %>
-  </ul>
-	<div style="clear:both;"><input type="button" value="check all" /> <input type="button" value="uncheck all" /> <input type="submit" value="apply" /></div>
+  </ul> <div style="clear:both;"><input type="submit" value="apply" /></div>
+  </form>
 </div>
 <div style="float:left;width:74%;">
   <h1>Items</h1>
-  <%= link_to 'New item', new_item_path if logged_in? %>
   <ul>
   <% for item in @items %>
     <li class="item">
