@@ -2,4 +2,5 @@
   - for item in @latest_items
     %tr
       %td
+        %img{:src=>"/images/"+item.feed.service.identifier+".png"}
         %a{:href=>item.link}=h(item.title)
